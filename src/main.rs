@@ -1,3 +1,7 @@
+mod lexer;
+
 fn main() {
-    println!("Hello, world!");
+    let mut lexer = lexer::Lexer::new("cd && true");
+    let tokens = lexer.scan();
+    println!("Tokens : {:?}", tokens);
 }
