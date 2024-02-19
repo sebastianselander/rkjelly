@@ -1,20 +1,18 @@
 #![allow(unused)]
 
-use std::str::Chars;
+use std::{str::Chars, collections::VecDeque};
 
 #[derive(Debug)]
-pub struct Lexer<'a> {
-    text: Chars<'a>,
-    cursor: usize,
+pub struct Lexer {
+    text: VecDeque<char>,
     column: usize,
     row: usize,
 }
 
-impl<'a> Lexer<'a> {
+impl Lexer {
     pub fn new(str: String) -> Self {
         Self {
-            text: str.chars(),
-            cursor: 0,
+            text: str.chars().collect(),
             column: 1,
             row: 1,
         }
